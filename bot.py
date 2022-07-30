@@ -66,16 +66,20 @@ def android_niveau_zero(query) -> None:
 
     Dans ce cas, préférez acheter un téléphone déjà configuré, ou demandez à une personne de confiance ayant le niveau pour configurer votre téléphone à votre place.
 
-    Dans le cas où vous souhaitez acheter un téléphone déjà configuré, nous vous suggerons deux systèmes libres :
-    - /e/, pour un téléphone dé-googlisé, respectueux de la vie privée et Français.
-    - GrapheneOS, pour un téléphone avec une vie privée et une sécurité maximale.
+    Dans le cas où vous souhaitez acheter un téléphone déjà pré-configuré, nous vous suggérons plusieurs systèmes libres :
+    - /e/ OS, pour un téléphone dé-googlisé, respectueux de la vie privée et Français.
+    - iodé OS, pour un téléphone dépourvu de traceursn avec de nombreuses sécurités, également Français.
+    - Graphene OS, pour un téléphone avec une vie privée et une sécurité maximale.
     """
     keyboard = [
         [
-            InlineKeyboardButton("Site de /e/", url='https://e.foundation'),
+            InlineKeyboardButton("Site de /e/OS", url='https://e.foundation'),
         ],
         [
-            InlineKeyboardButton("Site de GrapheneOS", url='https://grapheneos.org/'),
+            InlineKeyboardButton("Site de iodéOS", url='https://iode.tech'),
+        ],
+        [
+            InlineKeyboardButton("Site de GrapheneOS", url='https://grapheneos.org'),
         ],
         [
             InlineKeyboardButton("Retour", callback_data='ANDROID_NIVEAU'),
@@ -90,8 +94,8 @@ def android_niveau_un(query) -> None:
 
     Certains systèmes peuvent être installés en deux ou trois clics. Parmis eux :
 
-    - GrapheneOS, avec un installateur en ligne, mais compatible uniquement avec les Pixels.
-    - /e/, avec leur outil "Easy installer", disponible pour un nombre limité de téléphones.
+    - Graphene OS, avec un installateur en ligne dans un navigateur, mais compatible uniquement pour les Google Pixel.
+    - /e/ OS, avec leur outil "Easy installer", disponible pour un nombre limité de téléphones.
     """
     keyboard = [
         [
@@ -116,7 +120,8 @@ def android_niveau_deux(query) -> None:
 
     Selon votre modèle de smartphone, certains systèmes alternatifs, les "customs ROM" ne seront pas disponibles pour votre téléphone.
     Nous vous conseillons trois systèmes : GrapheneOS, CalyxOS et /e/. Les deux premiers ne supportent à quelques exceptions près que les Pixel de Google. /e/ supporte plus de 270 téléphones.
-    Cette opération peut "briquer" votre téléphone, le rendre inutilisable. Soyez attentifs, une ou deux mauvaises commandes suffisent. Pensez à toujours sauvegarder vos données.
+    Cette opération peut "bricker" votre téléphone, le rendre inutilisable. Soyez attentifs, une ou deux mauvaises commandes suffisent. 
+    **Pensez à toujours sauvegarder vos données**
     """
     keyboard = [
         [
@@ -144,7 +149,7 @@ def android_menaces(query) -> None:
 
     Votre modèle de menaces est-il élevé ?
 
-    Attention, il faut trouver le bon équilibre entre comodité et sécurité : Plus un système est sécurisé, moins il est pratique.
+    Attention, il faut trouver le bon équilibre entre comodité et sécurité : plus un système est sécurisé, moins il est pratique et plus il est contraignant.
     """
     keyboard = [
         [
@@ -164,7 +169,7 @@ def android_menaces_oui(query) -> None:
     text = """
     *Libérer son smarphone Android → Menaces → Élevées*
 
-    GrapheneOS est le système d'exploitation basé sur Android le plus sécurisé à l'heure actuelle : Renforcement des sécurités, sandboxing, lootloader re-verouillable, chiffrement du stockage, reglage plus fin des permissions...
+    GrapheneOS est le système d'exploitation basé sur Android le plus sécurisé à l'heure actuelle : Renforcement des sécurités, sandboxing, bootloader re-verouillable, chiffrement du stockage, réglage plus fin des permissions...
     """
     keyboard = [
         [
@@ -181,14 +186,14 @@ def android_menaces_non(query) -> None:
     text = """
     *Libérer son smarphone Android → Menaces → Modérées*
 
-    Quelques points auquels faire attention :
+    Quelques points auxquels faire attention :
     - SeLinux doit être en mode "enforcing".
     - Le système doit être régulièrement mis à jour, pour inclure les patchs de sécurité récents.
-    - Si possible, le bootloader doit être re-verouillable (faites la manipulation seulement s'il est avéré qu'elle fonctionne avec votre appareil. Si ce n'est pas le cas, vous pouvez le briquer !).
+    - Si possible, le bootloader doit être re-verrouillable (faites la manipulation seulement s'il est avéré qu'elle fonctionne avec votre appareil. Si ce n'est pas le cas, il y a un risque de blocage matériel du téléphone !).
     - Ne pas rooter votre appareil.
     - Si possible, le téléphone doit être encore supporté et mis à jour par la marque.
 
-    Niveau de sécurité, dans l'ordre décroissant : GrapheneOS, CalyxOS, DivestOS, /e/ ...
+    Niveau de sécurité, dans l'ordre décroissant : GrapheneOS, CalyxOS, IodéOS, DivestOS, /e/OS.
     """
     keyboard = [
         [
@@ -207,9 +212,10 @@ def quelle_rom(query) -> None:
 
     Il existe énormément de custom ROM, avec chacunes ses avantages et inconvénients. Nous vous en conseillons quatres :
     - GrapheneOS, pour un téléphone avec une vie privée et une sécurité maximale. Pixels uniquement.
-    - /e/, simple à utiliser, pour un téléphone dé-googlisé, respectueux de la vie privée et Français. +270 appareils.
-    - CalyxOS, à mi-chemin entre les deux, se veut simple d'utilisation tout en reprennant de nombreuses fonctionnalités de GrapheneOS pour la sécurité. Pixels uniquement.
-    - DivestOS, basé sur LineageOS pour supporter de nombreux appareils, axé vie privée et sécurité, en reprennant des fonctionnalités de Graphene. Pour utilisateur averti.
+    - /e/, simple à utiliser, pour un téléphone dé-googlisé, respectueux de la vie privée et Français. + 270 appareils sont supportés à l'heure actuelle.
+    - CalyxOS, à mi-chemin entre les deux, se veut simple d'utilisation tout en reprennant de nombreuses fonctionnalités de GrapheneOS pour la sécurité. Pixels et quelques autres téléphones (Oneplus notamment) uniquement.
+    - DivestOS, basé sur LineageOS pour supporter de nombreux appareils, axé sur la vie privée et la sécurité, reprenant des fonctionnalités de GrapheneOS. Pour utilisateur averti.
+    - IodéOS, est aussi basé sur LineageOS, libérer de tous ses logiciels Google et orienté vie privée. Il embarque également un mécanisme de filtre temps réel des requêtes réseau. Support de Terracube, Fairphone, Samsung et Sony.
     """
     keyboard = [
         [
@@ -225,6 +231,9 @@ def quelle_rom(query) -> None:
             InlineKeyboardButton("Site de DivestOS", url='https://divestos.org'),
         ],
         [
+            InlineKeyboardButton("Site de IodéOS", url='https://iode.tech'),
+        ],
+        [
             InlineKeyboardButton("Retour", callback_data='ANDROID'),
         ],
     ]
@@ -235,9 +244,9 @@ def ios(query) -> None:
     text = """
     *Libérer son iPhone*
 
-    Malheureusement, Apple ne permet pas de libérer son iPhone. iOS est un système propriétaire, mais Apple pousse le bouchon encore plus loin : C'est directement au niveau matériel qu'Apple crée un réseau Wifi maillé qui en permanance, borne et communique avec les autres appareils Apple qu'il rencontre. Niveau vie privée, difficile de faire pire. De plus, Apple verouille le système avec le kit de développement imposé aux developpeurs et rend les iPhones impossibles à utiliser sans Apple ID.
+    Malheureusement, Apple ne permet pas de libérer son iPhone. iOS est un système propriétaire, mais Apple pousse le bouchon encore plus loin : c'est directement au niveau matériel qu'Apple crée un réseau Wifi maillé qui en permanance, borne et communique avec les autres appareils Apple qu'il rencontre. Niveau vie privée, difficile de faire pire. De plus, Apple verrouille le système avec le kit de développement imposé aux developpeurs et rend les iPhones impossibles à utiliser sans Apple ID.
 
-    Nous vous conseillons d'aquérir un smartphone sous un système Android dé-googlisé, qui vous coutera par ailleurs bien moins cher qu'un iPhone.
+    Nous vous conseillons d'acquérir un smartphone avec un système Android dé-googlisé, qui vous coutera par ailleurs bien moins cher qu'un iPhone.
     """
     keyboard = [
         [
@@ -254,7 +263,7 @@ def mac(query) -> None:
     text = """
     *Libérer son Mac*
 
-    Mac OS est un système propriétaire, et Apple fait tout pour fermer son système. Deux options s'offrent à vous : Installer une distribution Linux ou rester sous Mac OS et le configurer.
+    Mac OS est un système propriétaire, et Apple fait tout pour fermer son système. Deux options s'offrent à vous : Installer une distribution Linux ou rester sous Mac OS et le configurer afin d'appliquer une politique sécurité optimale.
     """
     keyboard = [
         [
@@ -274,7 +283,7 @@ def mac_linux(query) -> None:
     text = """
     *Libérer son Mac → Installer Linux*
 
-    Depuis quelques années, avec leur nouvelle gamme de processeurs, Apple rend de plus en plus difficile le passage à Linux. Pour faire simple, la manipulation pour installer Linux sur les Mac d'avant 2016 est simple, mais après cette date, cela demande des connaissances poussées : Certaines fonctionnalités sont manquantes, notamment la Touchbar qui possède sa propre puce, elle aussi propriétaire et donc difficile à étudier et libérer. Certains projets sont en cours de développement, mais encore trop jeunes pour être utilisés par le grand public.
+    Depuis quelques années, avec leur nouvelle gamme de processeurs, Apple rend de plus en plus difficile le passage à Linux. Pour faire simple, la manipulation pour installer Linux sur les Mac d'avant 2016 est simple, mais après cette date, cela demande des connaissances poussées : certaines fonctionnalités sont manquantes, notamment la Touchbar qui possède sa propre puce, elle aussi propriétaire et donc difficile à étudier et libérer. Certains projets sont en cours de développement, mais encore trop jeunes pour être utilisés par le grand public.
 
     Plus d'informations concernant l'installation de Linux sur les Mac d'avant 2016 sont à venir :)
     """
@@ -311,7 +320,8 @@ def pc(query) -> None:
     text = """
     *Libérer mon PC*
 
-    La meilleure manière de libérer un PC est d'installer une distribution Linux à la place de Windows. Certaines distributions Linux ressemblent fortement à Windows, et la plupart des applications sont également disponibles sous Linux, ou une alternative libre.
+    La meilleure manière de libérer un ordinateur personnel (PC) est d'installer une distribution Linux à la place de Windows. 
+    Certaines distributions Linux ressemblent fortement à Windows, et la plupart des applications sont également disponibles sous Linux, ou une alternative libre.
 
     """
     keyboard = [
@@ -335,7 +345,7 @@ def pc_linux(query) -> None:
     text = """
     *Libérer mon PC → Déjà sous Linux*
 
-    Bon travail ! 🎉
+    Beau travail ! 🎉
     Nous ajouterons certainement des informations ici. En attendant, nous vous proposons une sélection de logiciels libres.
     """
     keyboard = [
@@ -353,8 +363,8 @@ def pc_linux_install(query) -> None:
     text = """
     *Libérer mon PC → Installer Linux*
 
-    Bien. Vous souhaitez installer Linux sur votre PC, mais un problème se pose : Quelle distribution choisir ?
-    En effet, il en existe pléthore de distributions, avec chacune ses spécificités. Voici nos sélections :
+    Bravo. Vous souhaitez installer Linux sur votre PC, mais un problème se pose : quelle distribution choisir ?
+    En effet, il existe pléthore de distributions, avec chacune ses spécificités. Voici une sélection :
     """
     keyboard = [
         [
@@ -376,7 +386,7 @@ def pc_linux_install_debutant(query) -> None:
     text = """
     *Libérer mon PC → Installer Linux → Débutant*
 
-    Pour les débutants, nous vous conseillons Zorin OS et Ubuntu, des distributions très faciles à utiliser au quotidien. Ubuntu possède une grande communauté francophone, qui saura vous aider en cas de pépin. Fedora, avec l'environnement Gnome ressemble beaucoup à Ubuntu, et est régulièrement conseillé à la place d'Ubuntu.
+    Pour les débutants, nous vous conseillons Zorin OS et Ubuntu, des distributions très faciles à utiliser au quotidien. Ubuntu possède une grande communauté francophone, qui saura vous aider en cas de pépin. Fedora, avec l'environnement Gnome ressemble beaucoup à Ubuntu, et est de plus en plus conseillé à la place d'Ubuntu.
     """
     keyboard = [
         [
@@ -396,8 +406,8 @@ def pc_linux_install_initie(query) -> None:
     *Libérer mon PC → Installer Linux → Initié*
 
     Nombreux sont les initiés qui utilisent quotidiennement les distributions présentées pour les débutants (Zorin, Ubuntu et Fedora Workstation). Mais pour ceux qui veulent découvrir de nouvelles distributions :
-    - Fedora Silverblue : Une version de Fedora spécifiquement créée pour les conteneurs : Le système est immuuable, ce qui renforce la sécurité.
-    - Arch Linux : Distribution très appréciée des barbus, car permet d'être extrèmement customisable : Elle ne contient que ce que vous y installez.
+    - Fedora Silverblue - Une version de Fedora spécifiquement créée pour les conteneurs : le système est immuuable, ce qui renforce la sécurité.
+    - Arch Linux - Distribution très appréciée des barbus, car permet d'être extrèmement customisable : elle ne contient que ce que vous y installez.
     """
     keyboard = [
         [
@@ -416,7 +426,7 @@ def pc_linux_install_securite(query) -> None:
     *Libérer mon PC → Installer Linux → Sécurtié*
 
     Voici les distributions Linux avec un maximum de sécurité :
-    - Qubes OS est destiné aux utilisateurs avancés, avec une sécurité maximale.
+    - Qubes OS est destiné aux utilisateurs avancés, avec une sécurité maximale. Son principe repose sur la virtualisation et la contenairisation.
     - Tails est une distribution imumuable, qui revient à l'identique à chaque redémarrage. Toutes les connexions passent par le réseau Tor.
     - Whonix est un système d'exploitation étanche qui fonctionne par dessus celui que vous utilisez.
     """
@@ -437,13 +447,15 @@ def pc_windows(query) -> None:
     text = """
     *Libérer mon PC → Rester sur Windows*
 
-    Windows, système propriétaire dévellopé par un GAFAM, qui piste ses utilisateurs et en proie à de nombreux virus... Pourquoi ne pas franchir le pas vers Linux ?
+    Windows, est le système propriétaire le plus connu et développé par un GAFAM, qui s'emploie donc à pister ses utilisateurs et est devenu une proie de choix pour les attaquants... 
+    Pourquoi ne pas franchir le pas vers Linux ?
 
-    Si malgré tout, vous souhaitez rester sous Windows, voici quelques astuces :
-    - Utilisez au maximum les logiciels libres : Ils ne vous pistent pas, et sont tous disponibles sous Linux, si vous prévoyez de tenter l'expérience.
-    - Utilisez Windows sans compte Micro$oft
+    Si malgré tout, vous souhaitez rester sur Windows, voici quelques astuces :
+    - Utilisez au maximum les logiciels libres : ils ne vous pistent pas, et sont tous disponibles sous Linux, si vous prévoyez de tenter l'expérience.
+    - Utilisez Windows sans compte Microsoft
     - Utilisez au minimum les applications et services de Microsoft
-    - Installez un bloqueur de tracking
+    - Installez un bloqueur de tracking, et paramétrez les extensions de votre navigateur avec Ublock et AdGuard au minimum 
+    - Paramétrez vos DNS privés
     """
     keyboard = [
         [
@@ -460,7 +472,8 @@ def logiciels(query) -> None:
     text = """
     *Logiciels libres*
 
-    Les logiciels libres sont gratuits et peuvent être utilisés, modifiés, audités, partagés par quiconque. Leur code source étant disponible, des développeurs du monde entier peuvent vérifier qu'ils ne contiennent pas de virus, trackers et failles de sécurité, quis sont généralement corrigées plus vite que sur les logiciels propriétaires !
+    Les logiciels libres sont gratuits et peuvent être utilisés, modifiés, audités, partagés par quiconque. 
+    Leur code source étant disponible, des développeurs du monde entier peuvent vérifier qu'ils ne contiennent pas de code suspect, de trackers ou de failles de sécurité, qui sont généralement corrigées plus vite que sur les logiciels propriétaires !
 
     Sélectionnez une catégorie pour plus d'informations et notre sélection.
     """
@@ -485,19 +498,23 @@ def logiciels_web(query) -> None:
     text = """
     *Logiciels libres → Navigateur web*
 
-    Les navigateurs web font partie des logiciels que nous utilisons le plus au quotidien. Il est donc primordial de bien le choisir et bien le configurer : Les mauvais navigateurs pistent tous vos faits et gestes sur internet pour revendre ces informations à des régies publicitaires.
+    Les navigateurs web font partie des logiciels que nous utilisons le plus au quotidien. Il est donc primordial de bien le choisir et bien le configurer : les mauvais navigateurs pistent tous vos faits et gestes sur internet pour revendre ces informations à des régies publicitaires.
 
     Voici notre sélection :
     - Firefox : Disponible sur toutes les plateformes, c'est le navigateur libre et respectueux de la vie privée le plus utilisé. De nombreuses extensions (même sur mobile) vous permettent de le rendre encore plus privé et sécurisé.
+    - Librewolf : Basé sur Firefox, renforcé au niveau sécurité et vie privée.
     - Tor Browser : Disponible sur toutes les plateformes et basé sur Firefox, il pousse le niveau de sécurité et de vie privée encore plus loin, et vous permet d'accèder au réseau homonyme.
-    - Sur Android, citons également Mull et Bromite, respectivement basés sur Firefox et Chromium (libre, basé sur Chrome).
+    
+    Sur Android : citons Mull et Bromite, respectivement basés sur Firefox et Chromium (libre, basé sur Chrome).
 
     Les navigateurs à banir :
-    - Chrome, Safari, Edge : Propriétaires, appartiennent aux GAFAM.
+    - Chrome, Safari, IE, Edge : Propriétaires, ouvert au tracking de toutes sortes, en lien avec les GAFAM.
+    - Brave dans une moindre mesure.
     """
     keyboard = [
         [
             InlineKeyboardButton("Firefox", url='https://firefox.com/'),
+            InlineKeyboardButton("Librewolf", url='https://librewolf.net/'),
             InlineKeyboardButton("Tor Browsr", url='https://www.torproject.org/download/'),
         ],
         [
@@ -515,7 +532,9 @@ def logiciels_mail(query) -> None:
     text = """
     *Logiciels libres → Mails*
 
-    Rappelez-vous : Les protocoles mails ont été créés avant l'Internet actuel, et l'accent n'a pas été mis sur la sécurité et la vie privée. Il est donc important d'utiliser autant que possible le chiffrement PGP. Malgré ces précautions, un nombre important de métadonnées sont reliées au message, et même si ce dernier ne peut être lu, elles donnent un grand nombre d'informations à son sujet. Pour des conversations plus privées et sécurisées, tournez-vous vers des messageries instantanées chiffrées de bout en bout.
+    Rappelez-vous : Les protocoles mails ont été créés avant l'Internet actuel, et l'accent n'a pas été mis sur la sécurité et la vie privée. Il est donc important d'utiliser autant que possible le chiffrement PGP. 
+    Malgré ces précautions, un nombre important de métadonnées sont reliées au message, et même si ce dernier ne peut être lu, elles donnent un grand nombre d'informations à son sujet. 
+    Pour des conversations plus privées et sécurisées, tournez-vous vers des messageries instantanées chiffrées de bout en bout.
     """
     keyboard = [
         [
@@ -538,9 +557,9 @@ def logiciels_mail_providers(query) -> None:
     *Logiciels libres → Mails → Fournisseurs*
 
     Voici une sélection de fournisseurs mail sécurisés et respectueux de la vie privée :
-    - Proton Mail : Tous niveaux, offres gratuites et payantes. Ne permet pas l'utilisation de clients mails autres que les leurs dans la version gratuite. Chiffrement automatique entre utilisateurs Proton uniquement Basé en Suisse.
-    - Tutanota : Concurrent à Proton Mail, basé en Allemagne.
-    - Disroot : Association proposant un compte mail gratuit. Utilisable avec tous les clients mail, le chiffrement PGP doit être configuré et utilisé manuellement par l'utilisateur.
+    - Proton Mail : Tous niveaux, offres gratuites et payantes. Ne permet pas l'utilisation de clients mails autres que les leurs dans la version gratuite. Chiffrement automatique entre utilisateurs Proton uniquement basés en Suisse.
+    - Tutanota : Concurrent à Proton Mail, basé en Allemagne. Permet le chiffrement systématique des mails.
+    - Disroot : Association proposant un compte mail gratuit. Utilisable avec tous les clients mails (Thunderbird...), le chiffrement PGP doit être configuré et utilisé manuellement par l'utilisateur.
     """
     keyboard = [
         [
@@ -561,8 +580,8 @@ def logiciels_mail_clients(query) -> None:
     *Logiciels libres → Mails → Clients*
 
     Il existe de nombreux clients mails. Pour vous aider à choisir, voici notre sélection :
-    - Thunderbird : Développé par la fondation Mozilla, est devenu incontournable et disponible sur Linux, Mac et Windows (bientot Android).
-    - K9-Mail, FairEmail : Deux clients libres pour Android. Le premier va devenir "Thunderbird mobile".
+    - Thunderbird : Développé par la fondation Mozilla, il est devenu incontournable et disponible sur Linux en natif, Mac et Windows (bientot Android).
+    - K9-Mail, FairEmail : Deux clients libres pour Android. Le premier deviendra "Thunderbird mobile".
     """
     keyboard = [
         [
@@ -582,7 +601,7 @@ def logiciels_mail_pgp(query) -> None:
     text = """
     *Logiciels libres → Mails → PGP*
 
-    Cette section est encore vide. Si vous en avez les capacités, merci de contribuer :)
+    Cette section est encore vide. Plus d'information à venir :)
     """
     keyboard = [
         [
@@ -625,7 +644,9 @@ def logiciels_vpn(query) -> None:
     Nous vous recommandons :
     - Proton VPN : Basé en Suisse, propose une offre gratuite (illimité, 3 pays) et plusieurs offres payantes.
     - Mullvad : Propose uniquement une offre payante. Basé en Suède (14 eyes), mais ne demande aucune information personnelle, et déclare ne pas en collecter.
-    Même si ce n'est pas un VPN à proprement parler, le réseau Tor peut être une bonne alternative.
+    Note : les autres solutions de VPN (NordVPN, Cyberghost...) sont toutes à plus ou moins grande échelle suspectés de collecter les logs. Il n'est donc plus recommandé de souscrire à ces offres. En effet, ces sociétés sont rachetées les unes les autres par des grands groupes dont les intérêts sont à priori obscures.
+    
+    Même si ce n'est pas un VPN à proprement parler, le réseau Tor peut être une bonne alternative, même si ses mécanismes rendent les performances de navigation grandement dégradées.
     """
     keyboard = [
         [
@@ -645,7 +666,7 @@ def fourteen_eyes(query) -> None:
     text = """
     *14 eyes*
 
-    Les 5, 6, 9 et 14 eyes sont une même alliance de renseignements faisant coopérer les pays membres pour assurer la collecte de renseignements électromagnétiques. Edward Snowden la décrit comme "une agence de renseignement supranationale qui ne répond pas aux lois de ses propres pays membres".
+    Les 5, 9 et 14 eyes sont une même alliance de renseignements faisant coopérer les pays membres pour assurer la collecte de renseignements électromagnétiques. Edward Snowden la décrit comme "une agence de renseignement supra-nationale qui ne répond pas aux lois de ses propres pays membres".
 
     Initialement, 5 pays, les 5 eyes :
     Australie, Canada, Nouvelle Zélande, Angleterre et États-Unis.
@@ -653,7 +674,7 @@ def fourteen_eyes(query) -> None:
     Viennent se rajouter 4 pays pour former les 9 eyes :
     Danemark, Pays-Bas, France et Norvège
 
-    Et les 1' eyes sont formés avec en plus :
+    Et les 14 eyes sont formés avec en plus :
     Belgique, Allemagne, Italie, Espagne et Suède
 
     Pays collaborant avec l'alliance mais n'en faisant pas partie officiellement :
@@ -671,15 +692,15 @@ def logiciels_cloud(query) -> None:
     text = """
     *Logiciels libres → Services Cloud*
 
-    Vous souhaitez vous libérer de l'emprise des GAFAM sur vos données dans le Cloud sans perdre les avantages de ce dernier ? Plusieurs solutions existent.
-
+    Vous souhaitez vous libérer de l'emprise des GAFAM sur vos données dans le Cloud sans perdre les avantages de ce dernier ? 
+    Plusieurs solutions existent :
     1. Vous pouvez migrer vos données vers un hébergeur plus vertueux, ne revendant pas vos données et utilisant des logiciels libres. Parmis eux :
     - Disroot, basé sur Nextcloud et hébergé par une association aux Pays-Bas (14 eyes)
     - Murena, basé sur Nextcloud, hébergé en France (9 eyes) par l'entreprise homonyme, qui développe le système /e/ pour Android.
 
     2. Si vous voulez apprendre à héberger vos données vous même (self hosting en anglais), nous vous conseillons :
     - Nextcloud, libre et très complet, une multitude de modules sont disponibles pour le paramètrer à votre guise.
-    - Yunohost permet de héberger sois-même de nombreux services, dont Nextcloud, sans avoir besoin de connaissances particulières.
+    - Yunohost permet d'héberger soi même de nombreux services, dont Nextcloud, sans avoir besoin de connaissances particulières.
     """
     keyboard = [
         [
@@ -722,7 +743,7 @@ def start_data():
         ],
         [
             InlineKeyboardButton("Libérer mon PC", callback_data='PC'),
-            InlineKeyboardButton("Libérer mon mac", callback_data='MAC'),
+            InlineKeyboardButton("Libérer mon Mac", callback_data='MAC'),
         ],
         [
             InlineKeyboardButton("Logiciels libres", callback_data='LOGICIELS'),
