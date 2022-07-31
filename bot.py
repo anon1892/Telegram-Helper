@@ -69,7 +69,6 @@ def android_niveau_zero(query) -> None:
     Dans le cas où vous souhaitez acheter un téléphone déjà pré-configuré, nous vous suggérons plusieurs systèmes libres :
     - /e/ OS, pour un téléphone dé-googlisé, respectueux de la vie privée et Français.
     - iodé OS, pour un téléphone dépourvu de traceursn avec de nombreuses sécurités, également Français.
-    - Graphene OS, pour un téléphone avec une vie privée et une sécurité maximale.
     """
     keyboard = [
         [
@@ -120,7 +119,7 @@ def android_niveau_deux(query) -> None:
 
     Selon votre modèle de smartphone, certains systèmes alternatifs, les "customs ROM" ne seront pas disponibles pour votre téléphone.
     Nous vous conseillons trois systèmes : GrapheneOS, CalyxOS et /e/. Les deux premiers ne supportent à quelques exceptions près que les Pixel de Google. /e/ supporte plus de 270 téléphones.
-    Cette opération peut "bricker" votre téléphone, le rendre inutilisable. Soyez attentifs, une ou deux mauvaises commandes suffisent. 
+    Cette opération peut "bricker" votre téléphone, le rendre inutilisable. Soyez attentifs, une ou deux mauvaises commandes suffisent.
     **Pensez à toujours sauvegarder vos données**
     """
     keyboard = [
@@ -320,8 +319,8 @@ def pc(query) -> None:
     text = """
     *Libérer mon PC*
 
-    La meilleure manière de libérer un ordinateur personnel (PC) est d'installer une distribution Linux à la place de Windows. 
-    Certaines distributions Linux ressemblent fortement à Windows, et la plupart des applications sont également disponibles sous Linux, ou une alternative libre.
+    La meilleure manière de libérer un ordinateur personnel (PC) est d'installer une distribution Linux à la place de Windows.
+    Certaines distributions Linux ressemblent fortement à Windows, et la plupart des applications disponibles sur Windows le sont également sous Linux. Si elles ne le sont pas, vous trouverez certainement une alternative qui offre des fonctionnalités très similaires.
 
     """
     keyboard = [
@@ -368,8 +367,9 @@ def pc_linux_install(query) -> None:
     """
     keyboard = [
         [
-            InlineKeyboardButton("Pour les débutants", callback_data='PC_LINUX_INSTALL_DEBUTANT'),
-            InlineKeyboardButton("Pour les initiés", callback_data='PC_LINUX_INSTALL_INITIE'),
+            InlineKeyboardButton("Pour débutants", callback_data='PC_LINUX_INSTALL_DEBUTANT'),
+            InlineKeyboardButton("Pour initiés", callback_data='PC_LINUX_INSTALL_INITIE'),
+            InlineKeyboardButton("Pour confirmés", callback_data='PC_LINUX_INSTALL_CONFIRME'),
         ],
         [
             InlineKeyboardButton("Sécurité/anonymat", callback_data='PC_LINUX_INSTALL_SECURITE'),
@@ -403,16 +403,44 @@ def pc_linux_install_debutant(query) -> None:
 
 def pc_linux_install_initie(query) -> None:
     text = """
-    *Libérer mon PC → Installer Linux → Initié*
+    *Libérer mon PC → Installer Linux → Initiés*
 
     Nombreux sont les initiés qui utilisent quotidiennement les distributions présentées pour les débutants (Zorin, Ubuntu et Fedora Workstation). Mais pour ceux qui veulent découvrir de nouvelles distributions :
-    - Fedora Silverblue - Une version de Fedora spécifiquement créée pour les conteneurs : le système est immuuable, ce qui renforce la sécurité.
-    - Arch Linux - Distribution très appréciée des barbus, car permet d'être extrèmement customisable : elle ne contient que ce que vous y installez.
+    - Linux Mint - Distribution basée sur Ubuntu, se veut élégante et confortable, à la fois puissante et facile d'utilisation.
+    - Pop! OS - Elle aussi basée sur Ubuntu, est développée par l'entreprise Américaine System76 pour ses ordinateurs, mais peut être installée sur un grand nombre d'autres.
+    - Elementary OS - Basée sur Ubuntu, se veut simple d'utilisation avec peu de besoins d'accèder à la console, et graphiquement proche de Mac OS, avec une cohérence entre les applications.
     """
     keyboard = [
         [
+            InlineKeyboardButton("Linux Mint", url='https://linuxmint.com/'),
+            InlineKeyboardButton("Pop! OS", url='https://pop.system76.com/'),
+            InlineKeyboardButton("Elementary OS", url='https://elementary.io/'),
+        ],
+        [
+            InlineKeyboardButton("Retour", callback_data='PC_LINUX_INSTALL'),
+        ],
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    query.edit_message_text(text, reply_markup=reply_markup, parse_mode="Markdown")
+
+def pc_linux_install_confirme(query) -> None:
+    text = """
+    *Libérer mon PC → Installer Linux → Confirmé*
+
+    Nombreux sont les utilisateurs confirmés qui utilisent quotidiennement les distributions présentées pour les débutants et initiés. Mais pour ceux qui veulent découvrir de nouvelles distributions :
+    - Debian - Distribution très stable à la base de nombreuses autres (dont Ubuntu) et très personnalisable. Possède une grande communauté.
+    - Fedora Silverblue - Une version de Fedora spécifiquement créée pour les conteneurs : le système est immuuable, ce qui renforce la sécurité.
+    - Arch Linux - Distribution très appréciée des barbus, car permet d'être extrèmement customisable : elle ne contient que ce que vous y installez.
+    - Red Hat - Aussi connue sous l'acronyme RHEL pour RedHat Entreprise Linux, est à la base de Fedora et est orientée vers le marché commercial et les serveurs d'entreprise.
+    """
+    keyboard = [
+        [
+            InlineKeyboardButton("Debian", url='https://www.debian.org/'),
             InlineKeyboardButton("Fedora Silverblue", url='https://silverblue.fedoraproject.org/'),
+        ],
+        [
             InlineKeyboardButton("Arch Linux", url='https://archlinux.org/'),
+            InlineKeyboardButton("Red Hat", url='http://www.redhat.com/rhel'),
         ],
         [
             InlineKeyboardButton("Retour", callback_data='PC_LINUX_INSTALL'),
@@ -447,14 +475,14 @@ def pc_windows(query) -> None:
     text = """
     *Libérer mon PC → Rester sur Windows*
 
-    Windows, est le système propriétaire le plus connu et développé par un GAFAM, qui s'emploie donc à pister ses utilisateurs et est devenu une proie de choix pour les attaquants... 
+    Windows, est le système propriétaire le plus connu et développé par un GAFAM, qui s'emploie donc à pister ses utilisateurs et est devenu une proie de choix pour les attaquants...
     Pourquoi ne pas franchir le pas vers Linux ?
 
     Si malgré tout, vous souhaitez rester sur Windows, voici quelques astuces :
     - Utilisez au maximum les logiciels libres : ils ne vous pistent pas, et sont tous disponibles sous Linux, si vous prévoyez de tenter l'expérience.
     - Utilisez Windows sans compte Microsoft
     - Utilisez au minimum les applications et services de Microsoft
-    - Installez un bloqueur de tracking, et paramétrez les extensions de votre navigateur avec Ublock et AdGuard au minimum 
+    - Installez un bloqueur de tracking, et paramétrez les extensions de votre navigateur avec Ublock et AdGuard au minimum
     - Paramétrez vos DNS privés
     """
     keyboard = [
@@ -472,7 +500,7 @@ def logiciels(query) -> None:
     text = """
     *Logiciels libres*
 
-    Les logiciels libres sont gratuits et peuvent être utilisés, modifiés, audités, partagés par quiconque. 
+    Les logiciels libres sont gratuits et peuvent être utilisés, modifiés, audités, partagés par quiconque.
     Leur code source étant disponible, des développeurs du monde entier peuvent vérifier qu'ils ne contiennent pas de code suspect, de trackers ou de failles de sécurité, qui sont généralement corrigées plus vite que sur les logiciels propriétaires !
 
     Sélectionnez une catégorie pour plus d'informations et notre sélection.
@@ -504,7 +532,7 @@ def logiciels_web(query) -> None:
     - Firefox : Disponible sur toutes les plateformes, c'est le navigateur libre et respectueux de la vie privée le plus utilisé. De nombreuses extensions (même sur mobile) vous permettent de le rendre encore plus privé et sécurisé.
     - Librewolf : Basé sur Firefox, renforcé au niveau sécurité et vie privée.
     - Tor Browser : Disponible sur toutes les plateformes et basé sur Firefox, il pousse le niveau de sécurité et de vie privée encore plus loin, et vous permet d'accèder au réseau homonyme.
-    
+
     Sur Android : citons Mull et Bromite, respectivement basés sur Firefox et Chromium (libre, basé sur Chrome).
 
     Les navigateurs à banir :
@@ -532,8 +560,8 @@ def logiciels_mail(query) -> None:
     text = """
     *Logiciels libres → Mails*
 
-    Rappelez-vous : Les protocoles mails ont été créés avant l'Internet actuel, et l'accent n'a pas été mis sur la sécurité et la vie privée. Il est donc important d'utiliser autant que possible le chiffrement PGP. 
-    Malgré ces précautions, un nombre important de métadonnées sont reliées au message, et même si ce dernier ne peut être lu, elles donnent un grand nombre d'informations à son sujet. 
+    Rappelez-vous : Les protocoles mails ont été créés avant l'Internet actuel, et l'accent n'a pas été mis sur la sécurité et la vie privée. Il est donc important d'utiliser autant que possible le chiffrement PGP.
+    Malgré ces précautions, un nombre important de métadonnées sont reliées au message, et même si ce dernier ne peut être lu, elles donnent un grand nombre d'informations à son sujet.
     Pour des conversations plus privées et sécurisées, tournez-vous vers des messageries instantanées chiffrées de bout en bout.
     """
     keyboard = [
@@ -645,7 +673,7 @@ def logiciels_vpn(query) -> None:
     - Proton VPN : Basé en Suisse, propose une offre gratuite (illimité, 3 pays) et plusieurs offres payantes.
     - Mullvad : Propose uniquement une offre payante. Basé en Suède (14 eyes), mais ne demande aucune information personnelle, et déclare ne pas en collecter.
     Note : les autres solutions de VPN (NordVPN, Cyberghost...) sont toutes à plus ou moins grande échelle suspectés de collecter les logs. Il n'est donc plus recommandé de souscrire à ces offres. En effet, ces sociétés sont rachetées les unes les autres par des grands groupes dont les intérêts sont à priori obscures.
-    
+
     Même si ce n'est pas un VPN à proprement parler, le réseau Tor peut être une bonne alternative, même si ses mécanismes rendent les performances de navigation grandement dégradées.
     """
     keyboard = [
@@ -692,7 +720,7 @@ def logiciels_cloud(query) -> None:
     text = """
     *Logiciels libres → Services Cloud*
 
-    Vous souhaitez vous libérer de l'emprise des GAFAM sur vos données dans le Cloud sans perdre les avantages de ce dernier ? 
+    Vous souhaitez vous libérer de l'emprise des GAFAM sur vos données dans le Cloud sans perdre les avantages de ce dernier ?
     Plusieurs solutions existent :
     1. Vous pouvez migrer vos données vers un hébergeur plus vertueux, ne revendant pas vos données et utilisant des logiciels libres. Parmis eux :
     - Disroot, basé sur Nextcloud et hébergé par une association aux Pays-Bas (14 eyes)
@@ -818,6 +846,8 @@ def button(update: Update, context: CallbackContext) -> None:
         pc_linux_install_debutant(query)
     elif query.data == 'PC_LINUX_INSTALL_INITIE':
         pc_linux_install_initie(query)
+    elif query.data == 'PC_LINUX_INSTALL_CONFIRME':
+        pc_linux_install_confirme(query)
     elif query.data == 'PC_LINUX_INSTALL_SECURITE':
         pc_linux_install_securite(query)
     elif query.data == 'PC_WINDOWS':
